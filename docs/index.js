@@ -1177,21 +1177,22 @@ module.exports = function () {
         key: "make",
         value: function make(level) {
             // 生成谜盘
-            // const shouldRid = Math.random() * 9 < level;
             this.puzzleMatrix = this.solutionMatrix.map(function (row) {
                 return row.map(function (cell) {
                     return Math.random() * 9 < level ? 0 : cell;
                 });
             });
 
-            // 判断宫格是否填充了9个，如果9个全填则重新生成谜盘
-            for (var i = 0; i < 9; i++) {
-                var box = Toolkit.box.getBoxCells(this.puzzleMatrix, i);
-                if (box.every(function (v) {
-                    return v;
-                })) {
-                    console.log("重新生成谜盘");
-                    return this.make();
+            // 中高难度下，判断宫格是否填充了9个，如果9个全填则重新生成谜盘
+            if (level > 4) {
+                for (var i = 0; i < 9; i++) {
+                    var box = Toolkit.box.getBoxCells(this.puzzleMatrix, i);
+                    if (box.every(function (v) {
+                        return v;
+                    })) {
+                        console.log("重新生成谜盘");
+                        return this.make();
+                    }
                 }
             }
         }
