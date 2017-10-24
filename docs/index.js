@@ -1191,7 +1191,7 @@ module.exports = function () {
                         return v;
                     })) {
                         console.log("重新生成谜盘");
-                        return this.make();
+                        return this.make(level);
                     }
                 }
             }

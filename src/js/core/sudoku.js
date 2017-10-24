@@ -30,7 +30,7 @@ module.exports = class Sudoku {
                 const box = Toolkit.box.getBoxCells(this.puzzleMatrix, i)
                 if (box.every(v=>v)) {
                     console.log("重新生成谜盘")
-                    return this.make();
+                    return this.make(level);
                 }
             }
         }
