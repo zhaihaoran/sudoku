@@ -24,17 +24,45 @@ module.exports = class Sudoku {
             return Math.random() * 9 < level ? 0 : cell;
         }))
 
-        // 中高难度下，判断宫格是否填充了9个，如果9个全填则重新生成谜盘
-        if (level > 4 ) {
-            for (let i = 0; i < 9; i++) {
-                const box = Toolkit.box.getBoxCells(this.puzzleMatrix, i)
-                if (box.every(v=>v)) {
-                    console.log("重新生成谜盘")
-                    return this.make(level);
-                }
+        if (!this.checkPuzzleMatrix(this.puzzleMatrix, level)) {
+            return this.make(level)
+        }
+    }
+
+    /**
+     * 谜盘校验合理算法
+     * 
+     * 1.低难度下每个宫格，每一行，每一列不可填满，否则重新生成
+     * 2.中高难度下每个宫格，每一行，每一列至少填充1个，否则重新生成
+     * TODO 3.尽量保证每个宫格内数字抹除比较均衡 (均衡？？？)
+     */
+    checkPuzzleMatrix(matrix, level) {
+
+        let status = true;
+
+        for (let i = 0; i < 9; i++) {
+            // 取行数据
+            const row = matrix[i];
+            // 取列数据
+            const line = Array.from({
+                length: 9
+            }).map((v, j) => matrix[j][i])
+            // 取宫数据
+            const box = Toolkit.box.getBoxCells(matrix, i)
+            // 低中难度下
+            if ((level < 6) && (box.every(v => v) || row.every(v => v) || line.every(v => v))) {
+                console.log("level < 6 -- 重新生成谜盘")
+                status = false;
+            }
+            // 高难度下
+            if ((level > 5) && (box.every(v => !v) || row.every(v => !v) || line.every(v => !v))) {
+                console.log("level > 5 -- 重新生成谜盘")
+                status = false;
             }
         }
+
+        return status;
     }
 }
 
-console.log([2,3,0].every(a=>a))
+// console.log([2, 3, 0].every(a => a))
