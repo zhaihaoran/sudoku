@@ -5,8 +5,8 @@ module.exports = {
         index: './js/index'
     },
     output: {
-        path: __dirname + "/www",
-        filename: '[name]-[hash:5].js'
+        path: __dirname + "/docs",
+        filename: '[name].js'
     },
     devtool: 'source-map',
     devServer: {

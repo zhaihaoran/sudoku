@@ -1,6 +1,10 @@
 # Sudoku
 
-基于ES6 + jquery + webpack + Gulp 实现的数独小游戏,无商业用途，仅供学习之用
+基于ES6 + jquery + webpack + Gulp 实现的数独小游戏, 仅供学习回顾，无商业用途
+
+## GitHub Page 预览地址
+
+[数独小游戏](https://github.com/zhaihaoran/sudoku/docs/index.html)
 
 ## 功能
 
@@ -25,7 +29,7 @@ $ yarn install (npm install)
 $ npm run server
 ```
 
-## Build
+## Build 模式
 
 在src目录下执行
 

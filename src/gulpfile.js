@@ -6,7 +6,7 @@ gulp.task("webpack",()=>{
     // 转译Javascript
     gulp.src("./src")
         .pipe(webpack(config))
-        .pipe(gulp.dest("../www"));
+        .pipe(gulp.dest("../docs"));
 });
 
 gulp.task("default",["webpack"])
