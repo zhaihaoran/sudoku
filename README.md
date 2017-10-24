@@ -4,7 +4,8 @@
 
 ## GitHub Page 预览地址
 
-[数独小游戏](https://zhaihaoran.github.io/sudoku/)
+* 建议在手机端浏览
+* [数独小游戏](https://zhaihaoran.github.io/sudoku/)
 
 ## 功能
 
