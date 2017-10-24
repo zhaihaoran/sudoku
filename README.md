@@ -1,8 +1,13 @@
-# sudoku
-基于ES6+jquery+webpack 实现的数独小游戏，包含了标记，清理，重新开始，检查等功能，可以调整游戏难度。无商业用途，仅供学习之用
+# Sudoku
 
-## 参考
-www.imooc.com/video/15886
+基于ES6 + jquery + webpack + Gulp 实现的数独小游戏,无商业用途，仅供学习之用
+
+## 功能
+
+* 数独颜色标记
+* 清除、清理标记、检查并标记错误等基本功能
+* 自主设置难度，
+* (TODO) 倒计时、排行榜记录功能
 
 ## 开始
 
@@ -12,7 +17,7 @@ $ cd sudoku/src
 $ yarn install (npm install)
 ```
 
-## dev模式
+## Dev 模式
 
 在src目录下执行,支持热更新
 
@@ -27,3 +32,7 @@ $ npm run server
 ```shell
 $ npm run build
 ```
+
+## 资料参考
+
+www.imooc.com/video/15886

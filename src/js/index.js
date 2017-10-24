@@ -24,3 +24,8 @@ $("#clear").on('click',e=>{
 $("#rebuild").on('click',e=>{
     grid.rebuild();
 })
+// 设置难度
+$('#level').on('change',e=>{
+    var value = e.target.value;
+    grid.changeLevel(parseInt(value));
+})

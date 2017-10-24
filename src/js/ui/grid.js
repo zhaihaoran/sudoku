@@ -9,9 +9,10 @@ class Grid {
         this._$container = container;
     }
 
-    build() {
+    build(level) {
         const sudoku = new Sudoku();
-        sudoku.make();
+        this.level = level || 5;
+        sudoku.make(this.level);
         const matrix = sudoku.puzzleMatrix;
 
         // const generator = new Generator();
@@ -61,9 +62,9 @@ class Grid {
      * 
      * @memberof Grid
      */
-    rebuild() {
+    rebuild(level) {
         this._$container.empty();
-        this.build();
+        this.build(level || this.level);
         this.layout();
     }
 
@@ -120,6 +121,17 @@ class Grid {
      */
     clear() {
         this._$container.find('span.error').removeClass("error");
+    }
+
+    /**
+     * 改变等级
+     * 
+     * @param {any} level 
+     * @memberof Grid
+     */
+    changeLevel(level) {
+        this.level = level;
+        this.rebuild(this.level);
     }
 }
 
