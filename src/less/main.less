@@ -1,0 +1,161 @@
+@shadowBottom:0 0.2rem 0.3rem rgba(48,48,48,192);
+@shadowTop:0 -0.1rem,0.2rem rgba(48,48,48,192);
+@borderColor:#888;
+
+html {
+    font-size: 14px;
+}
+
+body {
+    margin:0;
+    padding: 0;
+    background: #eeeeee;
+    font-family: "微软雅黑";
+    user-select: none;
+    max-width: 450px;
+    .title {
+        padding: 1rem 5%;
+        background: steelblue;
+        color: white;
+        // margin: 2rem;
+        // 两个字符的空间
+        box-shadow: @shadowBottom;
+    
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .dashboard {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-sizing: border-box;
+        box-shadow: @shadowTop;
+        height: 3rem;
+    
+        .buttons {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+    
+            .button {
+                border: 0;
+                border-radius: 3px;
+                line-height: 1.4;
+                font-size: 14px;
+                float: left;
+                width: 25%;
+                height: 3rem;
+                font-size: white;
+                border: 1px solid #cccccc;
+                background: transparent;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        margin-top: 20%;
+        padding: 5%;
+        div.row {
+            &.row_g_bottom{
+                >span {
+                    border-bottom-width: 1px;
+                }
+            }
+            &:first-child {
+                >span {
+                    border-top-width: 2px;
+                }
+            }
+            &:last-child {
+                >span {
+                    border-bottom-width: 2px;
+                }
+            }
+        }
+        
+        span {
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            width: 11%;
+            box-sizing: border-box;
+            height: 24px;
+            line-height: 24px;
+            background: white;
+            border: 1px solid @borderColor;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            &:first-child {
+                border-left-width: 2px;
+            }
+            &:last-child {
+                border-right-width: 2px;
+            }
+            &.empty {
+                color: white;
+            }
+            &.fixed {
+                background: #cccccc;
+            }
+
+            &.error {
+                background:lightpink;
+                &.empty {
+                    color: lightpink;
+                }
+            }
+
+            &.mark1 {
+                background: lightblue;
+                &.empty {
+                    color: lightblue;
+                }
+            }
+
+            &.mark2 {
+                background: lightgreen;
+                &.empty {
+                    color: lightgreen;
+                }
+            }
+
+            &.col_g_left {
+                border-left-width: 2px;
+            }
+            // &.col_g_right {
+            //     border-right-width: 2px;
+            // }
+            
+        }
+    }
+
+    @popupCellSize:40px;
+    
+    .popup-num {
+        // 继承container的样式
+        .container();
+        width: 120px;
+        position: absolute;
+        padding: 0;
+        span {
+            width: @popupCellSize;
+            height: @popupCellSize;
+            line-height: @popupCellSize; 
+        }
+    }
+
+}
+
